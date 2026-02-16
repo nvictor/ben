@@ -23,3 +23,11 @@
 - `(C)`: Callback
 - `(T)`: Topper
 - `(A)`: Act‑out
+
+## Live Mode (Shorthand)
+- Omit prefixes (`F`, `M`, `S`) if standard order is used.
+- `>`: Linear (`F>`)
+- `?`: Interrogative (`F?`)
+- `~`: Narrative (`F~`)
+- `:`: Comparative (`F:`)
+- Example: `> ≠ ↓` (Linear, Reversal, Low Status)
