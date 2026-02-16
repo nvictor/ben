@@ -1,90 +1,75 @@
 # Bit Engineering Notation (BEN)
+**Version:** 1.0.0
 
-BEN is a symbolic system for describing the structural logic, cognitive mechanism, and performer status of a comedy bit. It explicitly separates how a joke works from what it is about, enabling diagnosis, iteration, and recomposition.
+BEN is a symbolic system for describing the structural logic, cognitive mechanism, and performer status of a comedy bit.
 
-BEN is designed as a writer's tool, not a taxonomy of joke topics.
+## Model: Captures vs Ignores
 
-## Design Principles
+| Captures | Ignores |
+| :--- | :--- |
+| Cognitive "gap" (Mechanism) | Topic / Subject matter |
+| Structural delivery (Form) | Exact wording / Phrasing |
+| Performer relationship (Status) | Cultural context |
+| Logic of the "twist" | Taste / Subjective humor |
 
-1. **Mechanism over Content**
-   BEN encodes the cognitive shift (the "twist") and the structural container, not the topic itself.
+## Canonical Syntax
 
-2. **Persona-Aware**
-   Comedy depends on the speaker's relationship to the audience and the target. Status is first‑class data.
+```text
+BEN ::= <Form> <Mechanism>+ <Status> [<Modifier>+]
+```
 
-3. **Composable**
-   Symbols can be combined to describe complex bits.
+Example: `F> M≠ S↓ (C)`
 
-## Core Axes
+## Symbol Table
 
 ### 1. Form (F)
-
-Structural container or delivery format of the bit.
-
-| Symbol | Meaning |
-|--------|---------|
-| `F>` | Linear, setup-punch |
-| `F?` | Interrogative, Q&A |
-| `F3` | Rule of Three (pattern, pattern, violation) |
-| `F~` | Narrative, anecdote |
-| `F:` | Comparative, analogy, "X is like Y" |
+Structural container of the bit.
+- `F>`: Linear, setup-punch.
+- `F?`: Interrogative, Q&A.
+- `F3`: Rule of Three.
+- `F~`: Narrative, anecdote.
+- `F:`: Comparative, analogy.
 
 ### 2. Mechanism (M)
-
-The cognitive operation that creates the laugh (the "gap"). Multiple mechanisms may be combined.
-
-| Symbol | Meaning |
-|--------|---------|
-| `M≠` | **Reversal:** Broken expectation, irony, value or status flip. |
-| `M*` | **Ambiguity:** Multiple valid interpretations: puns, polysemy, double entendre). |
-| `M^` | **Exaggeration:** Escalation, hyperbole, absurd amplification. |
-| `M_` | **Literalism or Misparse:** Interpreting metaphor, idiom, or abstraction literally. *Defined as a specialized form of reversal.* |
-| `M!` | **Recognition:** Sudden pattern recognition or articulation of an unspoken truth. |
+The cognitive operation that creates the laugh.
+- `M≠`: **Reversal:** Broken expectation.
+- `M*`: **Ambiguity:** Multiple interpretations.
+- `M^`: **Exaggeration:** Escalation/Hyperbole.
+- `M_`: **Literalism:** Interpreting metaphor literally.
+- `M!`: **Recognition:** Articulating unspoken truth.
 
 ### 3. Status (S)
+The speaker's relative psychological position.
+- `S↓`: **Low Status:** Self-deprecating/Powerless.
+- `S↑`: **High Status:** Superior/Judgmental.
+- `S=`: **Neutral:** Reporter/Observer.
 
-The speaker's relative social or psychological position.
+### 4. Modifiers
+- `(C)`: Callback.
+- `(T)`: Topper.
+- `(A)`: Act-out.
 
-| Symbol | Meaning |
-|--------|---------|
-| `S↓` | **Low Status:** Self‑deprecating, victim, confused, powerless. |
-| `S↑` | **High Status:** Superior, judgmental, confident, roasting. |
-| `S=` | **Neutral:** Reporter, guide, observer. |
+## Semantics Rules
 
-## Modifiers (Optional)
+- **Mechanism Stacking:** Multiple `M` symbols can be used if a bit relies on several cognitive shifts.
+- **Status is First-Class:** Status is essential for the "gap" to function correctly.
+- **Diagnosis:** BEN is used to diagnose *why* a bit works or fails structurally.
 
-| Symbol | Meaning |
-|--------|---------|
-| `(C)` | **Callback:** Refers to a previous element. |
-| `(T)` | **Topper:** A follow-up punchline to an existing joke. |
-| `(A)` | **Act‑out:** Relies on physical or vocal performance. |
+## Constraints / Invariants
 
-## Examples
+- Every bit must define exactly one Form (`F`) and one Status (`S`).
+- Mechanisms (`M`) must be explicitly identified; "just funny" is not a mechanism.
+- BEN is content-agnostic; the same BEN string can describe two completely different topics.
 
-### Wordplay / Pun
+## Live Mode (Shorthand)
 
-> "I tried a joke about chemistry — it got no reaction."
+Optimized for real-time bit tagging.
 
-**BEN:** `F> M* S=`
+- Omit prefixes (`F`, `M`, `S`) if using standard ordering.
+- Use `!`, `?`, `~`, `:` for forms.
 
-### Self‑Deprecating Story
+Example: `> ≠ ↓` (Linear, Reversal, Low Status)
 
-> "My father was so cheap that one year for my birthday he only gave me one walkie‑talkie..."
+---
 
-**BEN:** `F~ M^ S↓`
-
-### Rule of Three
-
-
-
-## Intended Use
-
-BEN is meant to:
-- Diagnose why jokes fail or succeed
-- Suggest rewrite paths by swapping symbols
-- Teach joke construction without prescribing content
-- Support long‑form set and story analysis
-
-BEN does not attempt to encode taste, culture, or audience preference.
-
-*Comedy is not magic. It is structure under pressure.*
+See [EXAMPLES.md](./EXAMPLES.md) for usage and [CHEATSHEET.md](./CHEATSHEET.md) for a quick reference.
